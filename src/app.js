@@ -24,7 +24,8 @@ db.sync({ alter: true })
 app.get("/", (req, res) => {
    res.status(200).json({
       status: "Respuesta exitosa",
-      description: "Prueva esta API con SWAGGER en el siguiente 'link'",
+      description:
+         "Prueba esta API con SWAGGER en el siguiente <a href='#'' target='new_blank'> https://ecommerce-perezariel.up.railway.app/ </a>",
       link: process.env.HOST,
    })
 })
