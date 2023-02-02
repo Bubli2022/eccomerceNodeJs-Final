@@ -1,4 +1,5 @@
 const express = require("express")
+const db = require("./utils/database")
 const cors = require("cors")
 const morgan = require("morgan")
 const routerApi = require("./routes")
@@ -10,7 +11,23 @@ app.use(express.json())
 app.use(cors())
 app.use(morgan("tiny"))
 
-routerApi(app) // funcion --> middlewares rutas --- middleware controller
+routerApi(app)
+
+db.authenticate()
+   .then(() => console.log("Autenticación exitosa"))
+   .catch((err) => console.log(err))
+
+db.sync({ alter: true })
+   .then(() => console.log("Conexión exitosa"))
+   .catch((err) => console.log(err))
+
+app.get("/", (req, res) => {
+   res.status(200).json({
+      status: "Respuesta exitosa",
+      description: "Prueva esta API con SWAGGER en el siguiente 'link'",
+      link: process.env.HOST,
+   })
+})
 
 app.use(error)
 

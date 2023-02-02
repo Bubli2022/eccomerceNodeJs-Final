@@ -1,15 +1,17 @@
-const Cart = require("../models/cart")
-const Order = require("../models/order")
-const Product = require("../models/product")
-const Users = require("../models/users")
-const ProductInCart = require("../models/productInCart")
-const ProductInOrder = require("../models/productInOrder")
+const {
+   users,
+   product,
+   order,
+   cart,
+   productInOrder,
+   productInCart,
+} = require("../models")
 const initModels = require("../models/init-models")
 const db = require("../utils/database")
 
 initModels(db)
 
-const users = [
+const Users = [
    {
       username: "Adolph",
       email: "adolph@gmail.com",
@@ -33,8 +35,8 @@ const users = [
 
    {
       username: "Pappu",
-      email: "pappu@gmail.com",
-      password: "dsfsdf3456",
+      email: "pappu2@gmail.com",
+      password: "dsfsdedewwv56",
    },
    {
       username: "Pappu",
@@ -43,7 +45,7 @@ const users = [
    },
 ]
 
-const cart = [
+const Cart = [
    { userId: 1, totalPrice: 10000 },
    { userId: 2, totalPrice: 21000 },
    { userId: 3, totalPrice: 32000 },
@@ -52,7 +54,7 @@ const cart = [
    { userId: 6, totalPrice: 65000 },
 ]
 
-const order = [
+const Order = [
    {
       totalPrice: 10000,
       userId: 1,
@@ -79,7 +81,7 @@ const order = [
    },
 ]
 
-const product = [
+const Product = [
    {
       name: "Afeitadora Phillips",
       price: 10000,
@@ -124,7 +126,7 @@ const product = [
    },
 ]
 
-const productInCart = [
+const ProductInCart = [
    { cartId: 1, productId: 1, quantity: 1, price: 10000 },
    { cartId: 2, productId: 2, quantity: 1, price: 21000 },
    { cartId: 3, productId: 3, quantity: 1, price: 32000 },
@@ -133,7 +135,7 @@ const productInCart = [
    { cartId: 6, productId: 6, quantity: 1, price: 65000 },
 ]
 
-const productInOrder = [
+const ProductInOrder = [
    { orderId: 1, productId: 1, quantity: 1, price: 10000 },
    { orderId: 2, productId: 2, quantity: 1, price: 21000 },
    { orderId: 3, productId: 3, quantity: 1, price: 32000 },
@@ -145,29 +147,30 @@ const productInOrder = [
 db.sync({ force: true })
    .then(() => {
       console.log("Iniciando la plantacion de informacion")
-      users.forEach((user) => Users.create(user))
+
+      Users.forEach((user) => users.create(user))
       setTimeout(() => {
-         product.forEach((product) => Product.create(product))
+         Product.forEach((prod) => product.create(prod))
       }, 0)
 
       setTimeout(() => {
-         cart.forEach((cart) => Cart.create(cart))
-      }, 300)
+         Cart.forEach((Car) => cart.create(Car))
+      }, 400)
 
       setTimeout(() => {
-         order.forEach((order) => Order.create(order))
-      }, 600)
+         Order.forEach((ord) => order.create(ord))
+      }, 800)
 
       setTimeout(() => {
-         productInCart.forEach((productInCart) =>
-            ProductInCart.create(productInCart)
-         )
-      }, 900)
-
-      setTimeout(() => {
-         productInOrder.forEach((productInOrder) =>
-            ProductInOrder.create(productInOrder)
+         ProductInCart.forEach((productInCar) =>
+            productInCart.create(productInCar)
          )
       }, 1200)
+
+      setTimeout(() => {
+         ProductInOrder.forEach((productInOrd) =>
+            productInOrder.create(productInOrd)
+         )
+      }, 1600)
    })
    .catch((error) => console.log(error))

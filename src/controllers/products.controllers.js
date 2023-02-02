@@ -1,18 +1,18 @@
 const { productServices } = require("../services")
 
-const getAllProducts = async (req, res) => {
+const createProduct = async (req, res) => {
    try {
-      const result = await productServices.getAll()
+      const prod = req.body
+      const result = await productServices.create(prod)
       res.json(result)
    } catch (error) {
       res.status(400).json(error.message)
    }
 }
 
-const createProduct = async (req, res) => {
+const getAllProducts = async (req, res) => {
    try {
-      const todo = req.body
-      const result = await productServices.create(todo)
+      const result = await productServices.getAll()
       res.json(result)
    } catch (error) {
       res.status(400).json(error.message)
