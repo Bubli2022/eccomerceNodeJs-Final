@@ -4,26 +4,26 @@ require("dotenv").config()
 
 const options = {
    apis: [
+      "./src/routes/users.routes.js",
+      "./src/models/users.js",
+
       "./src/routes/auth.routes.js",
 
       "./src/routes/products.routes.js",
       "./src/models/product.js",
 
-      "src/routes/orders.routes.js",
-      "src/models/order.js",
+      "./src/routes/orders.routes.js",
+      "./src/models/order.js",
 
-      "src/routes/cart.routes.js",
-      "src/models/cart.js",
-
-      "/src/routes/users.routes.js",
-      "./src/models/users.js",
+      "./src/routes/cart.routes.js",
+      "./src/models/cart.js",
    ],
    definition: {
       openapi: "3.0.0",
       info: {
          title: "Ecommerce en node js",
          version: "0.0.9",
-         description: "API para aplicación de ecommerce",
+         description: "API to ecommerce use",
       },
    },
 }

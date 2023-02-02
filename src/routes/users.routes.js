@@ -37,7 +37,7 @@ const router = Router()
  *                   items:
  *                     $ref: "#/components/schemas/users"
  * /api/v1/users/{id}:
- *   put:
+ *   get:
  *     security:
  *       - bearerAuth: []
  *     summary: See the data of a user in the app
@@ -52,7 +52,7 @@ const router = Router()
  *         description: user Id
  *     responses:
  *       200:
- *         description: Data update successfully
+ *         description: Data displayed successfully
  *         content:
  *           application/json:
  *             schema:
@@ -65,11 +65,11 @@ const router = Router()
  *                   type: array
  *                   items:
  *                     $ref: "#/components/schemas/users"
- * * /api/v1/users/{id}:
+ * /api/v1/users/:id:
  *   delete:
  *     security:
  *       - bearerAuth: []
- *     summary: See the data of a user in the app
+ *     summary: deleted data of users
  *     tags: [Users]
  *     parameters:
  *       - in: path

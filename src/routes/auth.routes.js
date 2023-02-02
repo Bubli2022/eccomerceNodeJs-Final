@@ -54,7 +54,7 @@ const router = Router()
  *         content:
  *           application/json:
  *             schema:
- *               $ref: "#/components/schemas/loginResponse"
+ *               $ref: "#/components/schemas/login"
  *       400:
  *         description: not found
  *         content:

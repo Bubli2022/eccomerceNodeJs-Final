@@ -49,34 +49,7 @@ const router = Router()
  *                   type: array
  *                   items:
  *                     $ref: "#/components/schemas/request_product"
- *   get:
- *     security:
- *       - bearerAuth: []
- *     summary: See the data of a product belonging to a user in the app
- *     tags: [Products]
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         schema:
- *           type: integer
- *           minimum: 1
- *         description: user Id
- *     responses:
- *       200:
- *         description: Data displayed successfully
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 status:
- *                   type: string
- *                   example: OK
- *                 data:
- *                   type: array
- *                   items:
- *                     $ref: "#/components/schemas/request_product"
+ *
  * /api/v1/products:
  *   get:
  *     summary: See all products
