@@ -7,8 +7,8 @@ const {
    order,
 } = require("../models")
 
-const transporter = require("../utils/mailer")
-const orderTemplate = require("../templates/newOrder")
+// const transporter = require("../utils/mailer")
+// const orderTemplate = require("../templates/newOrder")
 
 class OrdersServices {
    static async postOrder(id) {
@@ -24,7 +24,7 @@ class OrdersServices {
          allProducts.forEach((prod) => {
             quantityArr.push(prod.quantity)
          })
-         const quantity = quantityArr.reduce((a, b) => a + b)
+         // const quantity = quantityArr.reduce((a, b) => a + b)
 
          allProducts.forEach(async (prod) => {
             const Product = await product.findOne({ where: prod.productId })
@@ -51,13 +51,13 @@ class OrdersServices {
 
          const user = await users.findOne({ where: { id } })
 
-         transporter.sendMail({
-            from: "<yulianaboglione@gmail.com>",
-            to: user.email,
-            subject: `Gracias por preferir a My shop`,
-            text: `Haz realizado la compra de ${quantity} productos por un total de ${Order.totalPrice}`,
-            html: orderTemplate(user.username, quantity, Order.totalPrice),
-         })
+         // transporter.sendMail({
+         //    from: "<arielMarcos@gmail.com>",
+         //    to: user.email,
+         //    subject: `Gracias por preferir a My shop`,
+         //    text: `Haz realizado la compra de ${quantity} productos por un total de ${Order.totalPrice}`,
+         //    html: orderTemplate(user.username, quantity, Order.totalPrice),
+         // })
 
          allProducts.forEach(async (prod) => {
             await prod.destroy()

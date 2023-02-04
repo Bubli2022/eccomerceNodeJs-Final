@@ -9,7 +9,7 @@ const createOrder = async (req, res, next) => {
       next({
          status: 400,
          errorContent: error,
-         message: "Algo salio mal",
+         message: "Somethings wrong",
       })
    }
 }
@@ -22,7 +22,7 @@ const getOrder = async (req, res, next) => {
       next({
          status: 400,
          errorContent: error,
-         message: "Algo salio mal",
+         message: "Somethings wrong",
       })
    }
 }

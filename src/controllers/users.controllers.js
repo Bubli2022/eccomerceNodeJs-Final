@@ -30,11 +30,11 @@ const createUser = async (req, res) => {
 }
 
 const updateUser = (req, res) => {
-   res.json({ message: "Actualizando usuario" })
+   res.json({ message: "Updated user" })
 }
 
 const deleteUser = (req, res) => {
-   res.json({ message: "eliminando un usuario" })
+   res.json({ message: "Update user" })
 }
 
 module.exports = {

@@ -64,11 +64,11 @@ class cart extends Sequelize.Model {
             },
             userId: {
                type: DataTypes.STRING,
-               allowNull: false,
+               allowNull: true,
             },
             totalPrice: {
                type: DataTypes.STRING,
-               allowNull: false,
+               allowNull: true,
             },
          },
          {
